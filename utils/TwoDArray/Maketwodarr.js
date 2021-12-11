@@ -1,6 +1,6 @@
 const getRandomArbitrary = require("../randoomarbitay");
 
-const makerandoommatrix = () => {
+const makerandoommatrix = (begin, end) => {
   /*   let ground = [];
   let twodarry = [];
   for (var i = 0; i < 15; i++) {
@@ -19,7 +19,7 @@ const makerandoommatrix = () => {
   for (let i = 0; i < len; i++) {
     let tmp = [];
     for (let j = 1; j <= len - 1; j++) {
-      tmp.push(getRandomArbitrary(1, 99));
+      tmp.push(String.fromCharCode(getRandomArbitrary(begin || 48, end || 57)));
     }
     arr.push(tmp.join(" "));
   }

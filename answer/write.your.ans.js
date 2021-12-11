@@ -18,7 +18,14 @@ const ans = (input) => {
     // }
     // //console.log(6 * con + 66 * vow)
 
-    console.log(input);
+    let newInput = input.split("\n");
+    let hook = newInput[0].split(" ").map(Number);
+    let [N, M] = [hook[0], hook[1]];
+    let arr = [];
+    for (let i = 1; i < N; i++) {
+      arr.push(newInput[i].split(" "));
+    }
+    console.log(arr);
     return "Hello wrold";
   } catch (err) {
     console.log("You might be using split in ans function or 🐞" + err);
