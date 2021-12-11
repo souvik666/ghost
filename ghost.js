@@ -5,6 +5,7 @@ const performecharoperation = require("./utils/OneDArray/operations/randomcharop
 const performeAlphaoperation = require("./utils/OneDArray/operations/performealphaop");
 const performemultinum = require("./utils/OneDArray/operations/performemulticasearr");
 const asciart = require("./asciart");
+const performeTwoDarrayoperation = require("./utils/TwoDArray/operation/performetwodarray");
 
 inquirer
   .prompt([
@@ -13,20 +14,34 @@ inquirer
       message: `🚨 Make Sure to Write your answer before proceed ♆ (./answer/write.your.ans.js)🔥 \n ${asciart}`,
       name: "Options",
       choices: [
-        new inquirer.Separator(" = One dimension array = "),
+        new inquirer.Separator(" *= One dimension array =* "),
         {
-          name: "Randoom Number Array",
+          name: "(Randoom) Number Array",
         },
         {
-          name: "Randoom chars Array",
+          name: "(Randoom) chars Array",
         },
         {
-          name: "Randoom Alphabet Array",
+          name: "(Randoom) Alphabet Array",
         },
         {
           name: "Multicase Number Array",
         },
+        new inquirer.Separator(" *= Two dimension array =* "),
+        {
+          name: "TwodArray Number (Randoom)",
+        },
+        {
+          name: "TwodArray chars (Randoom)",
+        },
+        {
+          name: "TwodArray Alphabet (Randoom) ",
+        },
+        {
+          name: "TwodArray Number (Multicase) ",
+        },
       ],
+
       validate(answer) {
         /* Only one request at one time */
         if (answer.length < 1 || answer.length > 1) {
@@ -49,6 +64,9 @@ inquirer
     } else if (hook === "Number" && cases === "Multicase") {
       //under dev
       performemultinum("inputoutputlog");
+    }
+    if (hook === "Number" && cases === "TwodArray") {
+      performeTwoDarrayoperation("inputoutputlog");
     }
     if (hook === "chars" && cases !== "Multicase") {
       performecharoperation("inputoutputlog");
