@@ -26,7 +26,7 @@ Ghost is a cli based testcase maker focusing on problem setters current fetures 
 13 8 14 7 7 13 16 12 11 9 10 13
 ```
 useage -->
-* you will the value inside as an Array
+* you will get the value inside as an Array
 ```
 [
 13, 8, 14, 7, 7,
