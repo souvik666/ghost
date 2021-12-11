@@ -38,7 +38,7 @@ inquirer
           name: "TwodArray Alphabet (Randoom) ",
         },
         {
-          name: "TwodArray Number (Multicase) ",
+          name: "TwodArray Number Multicase",
         },
       ],
 
@@ -53,21 +53,32 @@ inquirer
     },
   ])
   .then((answers) => {
-    let [hook, cases] = [
+    let [hook, cases, procase] = [
       answers.Options[0].split(" ")[1],
       answers.Options[0].split(" ")[0],
+      answers.Options[0].split(" ")[2],
     ];
 
     let whatisthetime = new Date().getTime();
-    if (hook === "Number" && cases !== "Multicase") {
-      performearrayoperation("inputoutputlog");
-    } else if (hook === "Number" && cases === "Multicase") {
-      //under dev
-      performemultinum("inputoutputlog");
+    /* OneD Array */
+    if (hook === "Number" && cases !== "TwodArray") {
+      if (cases === "TwodArray") {
+        performeTwoDarrayoperation("inputoutputlog");
+      }
+      if (cases !== "Multicase") {
+        performearrayoperation("inputoutputlog");
+      }
+      if (cases === "Multicase") {
+        performemultinum("inputoutputlog");
+      }
     }
+    /* Two Array */
     if (hook === "Number" && cases === "TwodArray") {
-      performeTwoDarrayoperation("inputoutputlog");
+      if (procase !== "Multicase") {
+        performeTwoDarrayoperation("inputoutputlog");
+      }
     }
+
     if (hook === "chars" && cases !== "Multicase") {
       performecharoperation("inputoutputlog");
     } else if (hook === "chars" && cases == "Multicase") {

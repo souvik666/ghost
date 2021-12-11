@@ -17,6 +17,8 @@ const ans = (input) => {
     //   }
     // }
     // //console.log(6 * con + 66 * vow)
+
+    console.log(input);
     return "Hello wrold";
   } catch (err) {
     console.log("You might be using split in ans function or 🐞" + err);
