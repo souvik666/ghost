@@ -1,5 +1,6 @@
 
 # Ghost
+Ghost is a cli based testcase maker focusing on problem setters .
 
 ![ghost options](https://i.ibb.co/brpPYYY/ghosttt.png)
 
@@ -119,6 +120,67 @@ op->
   [ '1', '3', '7', '1' ],
   [ '8', '2', '3', '2' ],
   [ '7', '3', '6', '0' ]
+]
+```
+
+#### TwodArray chars (Randoom)
+example input-->
+```
+7 6
+> = ? ? > >
+? = ; ? : ;
+> ? : < ? <
+> = = > > =
+; < = > ? :
+? : ? : = >
+; > ; ; ? =
+```
+useage -->
+```
+let newInput = input.split("\n");
+    let hook = newInput[0].split(" ").map(Number);
+    let [N, M] = [hook[0], hook[1]];
+    let arr = [];
+    for (let i = 1; i < N; i++) {
+    arr.push(newInput[i].split(" "));
+}
+op->
+[
+  [ '>', '=', '?', '?', '>', '>' ],
+  [ '?', '=', ';', '?', ':', ';' ],
+  [ '>', '?', ':', '<', '?', '<' ],
+  [ '>', '=', '=', '>', '>', '=' ],
+  [ ';', '<', '=', '>', '?', ':' ],
+  [ '?', ':', '?', ':', '=', '>' ]
+]
+```
+
+#### TwodArray chars (Randoom)
+example input-->
+```
+5 4
+u e b k
+x h y v
+v u p c
+h j r l
+a b w w
+```
+useage -->
+```
+let newInput = input.split("\n");
+    let hook = newInput[0].split(" ").map(Number);
+    let [N, M] = [hook[0], hook[1]];
+    let arr = [];
+    for (let i = 1; i < N; i++) {
+    arr.push(newInput[i].split(" "));
+}
+op->
+[
+  [ 'o', 'q', 'i', 'g', 'm' ],
+  [ 'j', 'e', 'k', 'a', 'j' ],
+  [ 'd', 'v', 'i', 'p', 'o' ],
+  [ 'e', 'k', 'e', 'k', 'a' ],
+  [ 'i', 't', 'k', 'c', 'h' ]
 ]
 ```
 
