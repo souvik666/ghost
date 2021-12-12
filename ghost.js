@@ -6,6 +6,8 @@ const performeAlphaoperation = require("./utils/OneDArray/operations/performealp
 const performemultinum = require("./utils/OneDArray/operations/performemulticasearr");
 const asciart = require("./asciart");
 const performeTwoDarrayoperation = require("./utils/TwoDArray/operation/performetwodarray");
+const performeRandoomAlphaopMat = require("./utils/TwoDArray/operation/performealphamatirx");
+const performeRandoomCharsopMat = require("./utils/TwoDArray/operation/performeCharmat");
 
 inquirer
   .prompt([
@@ -60,7 +62,7 @@ inquirer
     ];
 
     let whatisthetime = new Date().getTime();
-    /* OneD Array */
+    /*------------------- OneD Array--------------- */
     if (hook === "Number" && cases !== "TwodArray") {
       if (cases === "TwodArray") {
         performeTwoDarrayoperation("inputoutputlog");
@@ -72,22 +74,45 @@ inquirer
         performemultinum("inputoutputlog");
       }
     }
-    /* Two Array */
+    if (hook === "chars" && cases !== "TwodArray") {
+      if (cases !== "Multicase") {
+        performecharoperation("inputoutputlog");
+      }
+      if (cases === "Multicase") {
+        return console.log("under dev");
+      }
+    }
+    if (hook === "Alphabet" && cases !== "TwodArray") {
+      if (cases !== "Multicase") {
+        performeAlphaoperation("inputoutputlog");
+      }
+      if (cases === "Multicase") {
+        return console.log("under dev");
+      }
+    }
+    /*----------------- TwoDArray------------------ */
+    //nums
     if (hook === "Number" && cases === "TwodArray") {
       if (procase !== "Multicase") {
         performeTwoDarrayoperation("inputoutputlog");
       }
     }
-
-    if (hook === "chars" && cases !== "Multicase") {
-      performecharoperation("inputoutputlog");
-    } else if (hook === "chars" && cases == "Multicase") {
-      return console.log("under dev");
+    //Chars
+    if (hook === "chars" && cases === "TwodArray") {
+      if (cases !== "Multicase") {
+        performeRandoomCharsopMat("inputoutputlog");
+      }
+      if (cases === "Multicase") {
+      }
     }
-    if (hook === "Alphabet" && cases !== "Multicase") {
-      performeAlphaoperation("inputoutputlog");
-    } else if (hook === "Alphabet" && cases == "Multicase") {
-      return console.log("under dev");
+    //alphas
+    if (hook === "Alphabet" && cases === "TwodArray") {
+      if (cases !== "Multicase") {
+        performeRandoomAlphaopMat("inputoutputlog");
+      }
+      if (cases === "Multicase") {
+        return console.log("under dev");
+      }
     }
     zipDirectory("inputoutputlog", `inputoutputlog/ghost${whatisthetime}.zip`);
     return console.log(
