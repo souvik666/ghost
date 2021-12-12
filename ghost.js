@@ -9,6 +9,10 @@ const performeTwoDarrayoperation = require("./utils/TwoDArray/operation/performe
 const performeRandoomAlphaopMat = require("./utils/TwoDArray/operation/performealphamatirx");
 const performeRandoomCharsopMat = require("./utils/TwoDArray/operation/performeCharmat");
 
+const loading = require("loading-cli");
+const load = loading("loading text!!");
+let flag = false;
+
 inquirer
   .prompt([
     {
@@ -61,6 +65,9 @@ inquirer
       answers.Options[0].split(" ")[2],
     ];
 
+    if (hook) {
+      flag = true;
+    }
     let whatisthetime = new Date().getTime();
     /*------------------- OneD Array--------------- */
     if (hook === "Number" && cases !== "TwodArray") {
@@ -114,8 +121,18 @@ inquirer
         return console.log("under dev");
       }
     }
+    if (flag) {
+      load.start();
+    }
+    setTimeout(function () {
+      load.color = "yellow";
+      load.text = "Making Zip";
+    }, 1000);
     zipDirectory("inputoutputlog", `inputoutputlog/ghost${whatisthetime}.zip`);
-    return console.log(
-      `Done! 🐺 zip Created under --> ./inputoutputlog/ghost${whatisthetime}.zip 🎃`
-    );
+    setTimeout(function () {
+      load.stop();
+      return console.log(
+        `Done! 🐺 zip Created under --> ./inputoutputlog/ghost${whatisthetime}.zip 🎃`
+      );
+    }, 1000);
   });
