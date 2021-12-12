@@ -1,14 +1,14 @@
 {
   "name": "testcasemakerpro",
   "version": "1.0.0",
-  "description": "",
+  "description": "Ghost is a cli based testcase maker focusing on problem setters current fetures are as below.",
   "main": "ghost.js",
   "scripts": {
     "ghost": "node ghost.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
-  "author": "",
+  "author": "souvik",
   "license": "ISC",
   "dependencies": {
     "archiver": "^5.3.0",

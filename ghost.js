@@ -131,11 +131,12 @@ inquirer
     }
     if (flag) {
       load.start();
+      setTimeout(function () {
+        load.color = "red";
+        load.text = "Making Zip";
+      }, 1000);
     }
-    setTimeout(function () {
-      load.color = "red";
-      load.text = "Making Zip";
-    }, 2000);
+
     if (!underdev) {
       zipDirectory(
         "inputoutputlog",
