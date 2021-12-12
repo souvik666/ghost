@@ -12,7 +12,7 @@ const performeRandoomCharsopMat = require("./utils/TwoDArray/operation/performeC
 const loading = require("loading-cli");
 const load = loading("loading text!!");
 let flag = false;
-
+let underdev = false;
 inquirer
   .prompt([
     {
@@ -94,6 +94,7 @@ inquirer
         performeAlphaoperation("inputoutputlog");
       }
       if (cases === "Multicase") {
+        underdev = true;
         return console.log("under dev");
       }
     }
@@ -103,21 +104,28 @@ inquirer
       if (procase !== "Multicase") {
         performeTwoDarrayoperation("inputoutputlog");
       }
+      if (procase === "Multicase") {
+        underdev = true;
+        return console.log("Under dev");
+      }
     }
     //Chars
     if (hook === "chars" && cases === "TwodArray") {
-      if (cases !== "Multicase") {
+      if (procase !== "Multicase") {
         performeRandoomCharsopMat("inputoutputlog");
       }
-      if (cases === "Multicase") {
+      if (procase === "Multicase") {
+        underdev = true;
+        return console.log("Under dev");
       }
     }
     //alphas
     if (hook === "Alphabet" && cases === "TwodArray") {
-      if (cases !== "Multicase") {
+      if (procase !== "Multicase") {
         performeRandoomAlphaopMat("inputoutputlog");
       }
-      if (cases === "Multicase") {
+      if (procase === "Multicase") {
+        underdev = true;
         return console.log("under dev");
       }
     }
@@ -125,14 +133,19 @@ inquirer
       load.start();
     }
     setTimeout(function () {
-      load.color = "yellow";
+      load.color = "red";
       load.text = "Making Zip";
-    }, 1000);
-    zipDirectory("inputoutputlog", `inputoutputlog/ghost${whatisthetime}.zip`);
+    }, 2000);
+    if (!underdev) {
+      zipDirectory(
+        "inputoutputlog",
+        `inputoutputlog/ghost${whatisthetime}.zip`
+      );
+    }
     setTimeout(function () {
       load.stop();
       return console.log(
         `Done! 🐺 zip Created under --> ./inputoutputlog/ghost${whatisthetime}.zip 🎃`
       );
-    }, 1000);
+    }, 3000);
   });
