@@ -18,6 +18,9 @@ Ghost is a cli based testcase maker focusing on problem setters current fetures 
 - Randoom chars Array
 - Randoom Alphabet Array
 - TwodArray Number (Randoom)
+- TwodArray Alphabet (Randoom)
+- TwodArray Number (Randoom)
+- TwodArray chars (Randoom)
 
 
 ## Features
@@ -155,7 +158,7 @@ op->
 ]
 ```
 
-#### TwodArray chars (Randoom)
+#### TwodArray Alphabet (Randoom)
 example input-->
 ```
 5 4
