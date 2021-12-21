@@ -7,8 +7,8 @@ const performearrayoperation = (where) => {
   for (let i = 0; i <= 10; i++) {
     let cake = makerandoomarray();
     ans(cake);
-   
-    writeme(`${where}/${i}.in`, `${cake.length}\n${cake.join(" ")}`);
+
+    writeme(`${where}/${i}.in`, `${cake.length}\n${cake}`);
     writeme(`${where}/${i}.out`, `${ans(cake)}`);
   }
   console.log("fininshed");

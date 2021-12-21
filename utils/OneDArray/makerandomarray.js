@@ -6,7 +6,7 @@ const makerandoomarray = (size) => {
   for (var i = 0, t = len; i < t; i++) {
     arr.push(getRandomArbitrary(7, 17));
   }
-  return arr;
+  return arr.join(" ");
 };
 
 module.exports = makerandoomarray;

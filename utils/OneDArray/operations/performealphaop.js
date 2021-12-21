@@ -10,7 +10,7 @@ const performeAlphaoperation = (where) => {
     let cake = MakerandoomAlpha();
     ans(cake);
 
-    writeme(`${where}/${i}.in`, `${cake.split(" ").length}\n${cake}`);
+    writeme(`${where}/${i}.in`, `${cake.split("").length}\n${cake}`);
     writeme(`${where}/${i}.out`, `${ans(cake)}`);
   }
   console.log("fininshed");

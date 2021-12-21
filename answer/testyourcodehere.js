@@ -25,22 +25,30 @@ for (let i = 1; i < newInput.length; i += 2) {
   console.log(n, arr);
 }
  */
-function ans(input) {
-  let con = 0,
-    vow = 0;
-  for (let i = 0; i < input.length; i++) {
-    if (
-      input[i] === 1 ||
-      input[i] === 5 ||
-      input[i] === 9 ||
-      input[i] === 15 ||
-      input[i] == 21
-    ) {
-      vow++;
-    } else {
-      con++;
-    }
-  }
-  return (6 * con + vow * 66).toString();
+
+function sumME(arr) {
+  let res = arr.reduce(function (a, b) {
+    return a + b;
+  });
+  return res;
 }
-console.log(ans([1, 2, 3]));
+function ans(input) {
+  let newinput = input.trim().split("\n");
+  let arr = [];
+  for (let i = 1; i < newinput.length; i++) {
+    arr.push(newinput[i].split(" ").map(Number));
+  }
+ 
+}
+
+let input = `5
+1 2 3 4 5
+6 7 8 9 10
+11 12 13 14 15
+16 17 18 19 20
+21 22 23 24 25`;
+
+function main() {
+  console.log(ans(input));
+}
+main();

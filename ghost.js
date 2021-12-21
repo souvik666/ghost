@@ -8,11 +8,13 @@ const asciart = require("./asciart");
 const performeTwoDarrayoperation = require("./utils/TwoDArray/operation/performetwodarray");
 const performeRandoomAlphaopMat = require("./utils/TwoDArray/operation/performealphamatirx");
 const performeRandoomCharsopMat = require("./utils/TwoDArray/operation/performeCharmat");
-
 const loading = require("loading-cli");
-const load = loading("loading text!!");
+const performeevenoperation = require("./utils/OneDArray/operations/performeeevengen");
+const load = loading("calculating values!!");
+
 let flag = false;
 let underdev = false;
+
 inquirer
   .prompt([
     {
@@ -33,6 +35,9 @@ inquirer
         {
           name: "Multicase Number Array",
         },
+        {
+          name: "DivbyNlen Number Array",
+        },
         new inquirer.Separator(" *= Two dimension array =* "),
         {
           name: "TwodArray Number (Randoom)",
@@ -51,7 +56,7 @@ inquirer
       validate(answer) {
         /* Only one request at one time */
         if (answer.length < 1 || answer.length > 1) {
-          return "You must select one ghost module to proceed.";
+          return "You must select only one ghost module to proceed.";
         }
 
         return true;
@@ -74,13 +79,32 @@ inquirer
       if (cases === "TwodArray") {
         performeTwoDarrayoperation("inputoutputlog");
       }
-      if (cases !== "Multicase") {
+      if (cases !== "Multicase" && cases !== "EvenLen") {
         performearrayoperation("inputoutputlog");
       }
-      if (cases === "Multicase") {
+      if (cases === "Multicase" && cases !== "EvenLen") {
         performemultinum("inputoutputlog");
       }
+      if (cases === "DivbyNlen") {
+        flag = false;
+        underdev = true;
+        const question = {
+          type: "input",
+          name: "N",
+          message: "What's should be the length divisible with?",
+        };
+        let tmp = false;
+        inquirer.prompt(question).then((answers) => {
+          let ans = JSON.stringify(answers.N, null, "  ");
+          if (ans) {
+            flag = false;
+            underdev = true;
+            performeevenoperation("inputoutputlog", ans);
+          }
+        });
+      }
     }
+
     if (hook === "chars" && cases !== "TwodArray") {
       if (cases !== "Multicase") {
         performecharoperation("inputoutputlog");
@@ -142,11 +166,11 @@ inquirer
         "inputoutputlog",
         `inputoutputlog/ghost${whatisthetime}.zip`
       );
+      setTimeout(function () {
+        load.stop();
+        return console.log(
+          `Done! 🐺 zip Created under --> ./inputoutputlog/ghost${whatisthetime}.zip 🎃`
+        );
+      }, 3000);
     }
-    setTimeout(function () {
-      load.stop();
-      return console.log(
-        `Done! 🐺 zip Created under --> ./inputoutputlog/ghost${whatisthetime}.zip 🎃`
-      );
-    }, 3000);
   });

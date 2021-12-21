@@ -1,34 +1,38 @@
+function sumME(arr) {
+  let res = arr.reduce(function (a, b) {
+    return a + b;
+  });
+  return res;
+}
 const ans = (input) => {
-  //write your code here
   try {
-    // let con = 0,
-    //   vow = 0;
-    // for (let i = 0; i < input.length; i++) {
-    //   if (
-    //     input[i] === 1 ||
-    //     input[i] === 5 ||
-    //     input[i] === 9 ||
-    //     input[i] === 15 ||
-    //     input[i] == 21
-    //   ) {
-    //     vow++;
-    //   } else {
-    //     con++;
-    //   }
-    // }
-    // //console.log(6 * con + 66 * vow)
-
-    /* let newInput = input.split("\n");
-    let hook = newInput[0].split(" ").map(Number);
-    let [N, M] = [hook[0], hook[1]];
+    let newinput = input.trim().split("\n");
     let arr = [];
-    for (let i = 1; i < N; i++) {
-      arr.push(newInput[i].split(" "));
+    for (let i = 1; i < newinput.length; i++) {
+      arr.push(newinput[i].split(" ").map(Number));
     }
-    console.log(arr); */
-    return "Hello wrold";
-  } catch (err) {
-    console.log("You might be using split in ans function or 🐞" + err);
+    let res = [];
+    let right = arr.length - 1;
+    let sum = 0;
+    let len = (arr.length / 2) | 0;
+    for (var i = 0; i < len; i++) {
+      sum += arr[i][right];
+    }
+    res.push(sum);
+    sum = 0;
+    for (let j = 0; j < arr.length; j++) {
+      sum += arr[i][j];
+    }
+    res.push(sum);
+    sum = 0;
+    for (let k = i + 1; k < arr.length; k++) {
+      sum += arr[k][0];
+    }
+    res.push(sum);
+    sum = 0;
+    return (res[0] * 6 + res[1] * 33 + res[2] * 2).toString();
+  } catch (e) {
+    console.error(e);
   }
 };
 
