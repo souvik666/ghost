@@ -12,29 +12,19 @@ const ans = (input) => {
       arr.push(newinput[i].split(" ").map(Number));
     }
     let half = (arr.length / 2) | 0;
-    let top = 0;
-    let left = 0;
-    let res = [];
     let sum = 0;
-    while (left < half) {
-      sum += arr[0][left];
-      left++;
+    for (let i = 0; i < half; i++) {
+      sum += arr[i][0];
     }
-    res.push(sum);
-    sum = 0;
-
-    while (top < arr.length) {
-      sum += arr[top][left];
-      top++;
+    for (let i = 0; i <= half; i++) {
+      sum += arr[half][i];
+      //console.log(arr[half][i]);
     }
-    res.push(sum);
-    sum = 0;
     for (let i = half + 1; i < arr.length; i++) {
+      sum += arr[i][half];
       sum += arr[arr.length - 1][i];
     }
-    res.push(sum);
-    sum = 0;
-    return (res[0] * 3 + res[1]*3 + res[2] * 2).toString();
+    return (sum * 3).toString();
   } catch (e) {
     console.error(e);
   }

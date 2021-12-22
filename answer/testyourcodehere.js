@@ -26,12 +26,12 @@ for (let i = 1; i < newInput.length; i += 2) {
 }
  */
 
-function sumME(arr) {
+/* function sumME(arr) {
   let res = arr.reduce(function (a, b) {
     return a + b;
   });
   return res;
-}
+} */
 function ans(input) {
   let newinput = input.trim().split("\n");
   let arr = [];
@@ -39,39 +39,27 @@ function ans(input) {
     arr.push(newinput[i].split(" ").map(Number));
   }
   let half = (arr.length / 2) | 0;
-  let top = 0;
-  let left = 0;
-  let res = [];
   let sum = 0;
-  while (left < half) {
-    sum += arr[0][left];
-    left++;
+  for (let i = 0; i < half; i++) {
+    sum += arr[i][0];
   }
-  res.push(sum);
-  sum = 0;
-
-  while (top < arr.length) {
-    sum += arr[top][left];
-    top++;
+  for (let i = 0; i <= half; i++) {
+    sum += arr[half][i];
+    //console.log(arr[half][i]);
   }
-  res.push(sum);
-  sum = 0;
   for (let i = half + 1; i < arr.length; i++) {
+    sum += arr[i][half];
     sum += arr[arr.length - 1][i];
   }
-  res.push(sum);
-  sum = 0;
-  return (res[0] * 3 + res[1] + res[2] * 2).toString();
+  return (sum * 3).toString();
 }
 
-let input = `7 7
-5 4 5 0 1 7 6
-4 5 0 0 0 1 1
-3 5 0 7 4 8 8
-8 3 5 1 8 6 4
-1 3 2 1 0 0 0
-4 2 0 5 8 0 1
-5 7 2 2 0 6 7`;
+let input = `5
+1 2 3 4 5
+6 7 8 9 1
+6 7 8 9 1
+1 2 3 4 5
+5 4 3 2 1`;
 
 function main() {
   console.log(ans(input));
